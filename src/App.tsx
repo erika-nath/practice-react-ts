@@ -1,10 +1,18 @@
 import "./styles.css";
 
-export default function App() {
+interface AppProps {
+  headerText: string;
+  extraText?: string;
+}
+
+export default function App({
+  headerText,
+  extraText = "some extra text"
+}: AppProps) {
   return (
     <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
+      <h1>{headerText}</h1>
+      {extraText && <p>{extraText} </p>}
     </div>
   );
 }

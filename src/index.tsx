@@ -8,6 +8,6 @@ const root = ReactDOMClient.createRoot(rootElement);
 
 root.render(
   <StrictMode>
-    <App />
+    <App headerText='this is a header'/>
   </StrictMode>
 );
