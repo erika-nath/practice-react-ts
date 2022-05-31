@@ -1,18 +1,26 @@
-import "./styles.css";
+import { useState } from "react";
+import { User } from "./interfaces";
 
-interface AppProps {
-  headerText: string;
-  extraText?: string;
-}
+export default function App() {
+  const [user, setUser] = useState<User | null>(null);
 
-export default function App({
-  headerText,
-  extraText = "some extra text"
-}: AppProps) {
+  const fetchUser = () =>
+    setUser({
+      name: "Mitchel",
+      age: 23,
+      country: "New York",
+      address: {
+        street: "Main st.",
+        number: 38,
+        zip: "23345"
+      },
+      admin: false
+    });
+
   return (
-    <div className="App">
-      <h1>{headerText}</h1>
-      {extraText && <p>{extraText} </p>}
-    </div>
+    <>
+      <button onClick={fetchUser}>Fetch user on click</button>
+      {user && <p>{`Welcome ${user.name}`}</p>}
+    </>
   );
 }
